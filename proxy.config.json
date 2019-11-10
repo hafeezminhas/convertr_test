@@ -1,0 +1,8 @@
+{
+    "/test/api/*": {
+      "target": "https://arkham.cvtr.io",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+}
