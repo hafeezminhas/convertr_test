@@ -1,0 +1,64 @@
+<div class="advertisers">
+  <div class="header" fxLayout="row" fxLayoutGap="10px">
+    <h4>Advertisers ({{total}})</h4>
+  </div>
+
+  <div class="container">
+    <div fxLayout="row">
+      <div fxFlex="100">
+        <mat-table #table [dataSource]="dataSource" matSort>
+
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-xs fxFlex="6">ID</mat-header-cell>
+            <mat-cell *matCellDef="let adv" fxHide fxShow.gt-xs fxFlex="6"> <span>{{adv.id}}</span> </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="fullName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="12">Contact</mat-header-cell>
+            <mat-cell *matCellDef="let adv" fxFlex="12"> {{adv.firstName}} {{adv.lastName}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="14">Advertiser</mat-header-cell>
+            <mat-cell *matCellDef="let adv" fxFlex="14"> {{adv.name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+            <mat-cell *matCellDef="let adv"> {{adv.email}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="orgURL">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Org URL</mat-header-cell>
+            <mat-cell *matCellDef="let adv"> {{adv.orgurl}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="telephone">
+            <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="10">Telephone</mat-header-cell>
+            <mat-cell *matCellDef="let adv" fxFlex="10"> {{adv.telephone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="address">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Address</mat-header-cell>
+            <mat-cell *matCellDef="let adv"> {{(adv.address | async)?.address}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="8">Actions</mat-header-cell>
+            <mat-cell *matCellDef="let adv" fxFlex="8">
+              <button mat-icon-button color="accent" matTooltip="Add new address" (click)="addNewAddress(adv)"> <mat-icon>add</mat-icon> </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+
+          <mat-row *matRowDef="let adv; columns: displayedColumns;"
+                   class="product"
+                   matRipple>
+          </mat-row>
+
+        </mat-table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="dialog-wrapper">
+  <h2 mat-dialog-title>Add New Address</h2>
+
+  <mat-dialog-content>
+    <form [formGroup]="addressForm" (submit)="onSubmit(addressForm.value)" autocomplete="off" novalidate>
+      <div fxLayout="row wrap">
+        <div fxFlex="100">
+          <mat-form-field class="input-fw">
+            <input matInput placeholder="New Address" formControlName="address" required>
+            <mat-hint align="end">Address should not be more then 60 characters long.</mat-hint>
+            <mat-error *ngIf="hasError('address', 'required')">Address is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="100" fxLayoutAlign="end" fxLayoutGap="5px" class="actions">
+          <button type="submit" class="mat-raised-button mat-accent" (click)="onSubmit()">Save</button>
+          <button type="button" class="mat-raised-button" (click)="close()">Close</button>
+        </div>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>

@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Coda|Crimson+Text|Gothic+A1|M+PLUS+1p|M+PLUS+Rounded+1c|Nanum+Gothic|Nanum+Myeongjo|Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.logo {
+  img {
+    margin: 12px 0 0;
+    width: 150px;
+  }
+}
+
+::ng-deep .mat-table {
+  flex: 1 1 auto;
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  font-family: 'Noto Sans', sans-serif;
+
+  .mat-header-row {
+    min-height: 64px;
+    font-size: 1rem;
+  }
+
+  .mat-row{
+    cursor: pointer;
+    border-bottom: 1px solid #d6d6d6;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #eff4f8;
+    }
+  }
+
+  .mat-cell {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+}
